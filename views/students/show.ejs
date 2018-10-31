@@ -1,0 +1,23 @@
+<%- include ../partials/header.ejs %>
+
+<h1>Student Details</h1>
+
+<h2><%= student.name %></h2>
+
+<hr>
+
+<h2>Costume Collection</h2>
+<select id="costumeselect">
+    <% costumes.forEach(function(costume) { %>
+        <option value="<%= costume._id %>"><%= costume.name %></option>
+    <% }); %>
+</select>
+<button data-id="<%= student._id %>" id="buy" type="button">Buy this costume</button>
+<div>
+    <% student.costumes.forEach(function(costume) { %>
+        <p><a href="/costumes/<%= costume._id %>"><%= costume.name %></a></p>
+    <% }); %>
+</div>
+
+
+<%- include ../partials/footer.ejs %>

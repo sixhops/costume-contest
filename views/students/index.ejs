@@ -1,0 +1,16 @@
+<%- include ../partials/header.ejs %>
+
+<h1>All the Students</h1>
+<a href="/students/new">Make a new Student</a>
+
+<hr>
+
+<% if (students.length) { %>
+    <% students.forEach(function(student) { %>
+        <p><a href="/students/<%= student._id %>"><%= student.name %></a></p>
+    <% }) %>
+<% } else { %>
+    <h2>There are no students yet...</h2>
+<% } %>
+
+<%- include ../partials/footer.ejs %>
